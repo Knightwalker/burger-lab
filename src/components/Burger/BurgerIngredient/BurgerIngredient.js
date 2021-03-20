@@ -23,7 +23,7 @@ const burgerIngredient = (props) => {
     ingredient = <div className={styles.Cheese}></div>
   
   } else if (props.type === "bacon") {
-    ingredient = <div className={styles.Bakon}></div>
+    ingredient = <div className={styles.Bacon}></div>
   
   } else if (props.type === "salad") {
     ingredient = <div className={styles.Salad}></div>
