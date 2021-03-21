@@ -10,7 +10,7 @@ const modal = (props) => {
 
   return (
     <React.Fragment>
-      <Backdrop show={props.show} fCancelPurchaseHandler={props.fCancelPurchaseHandler}></Backdrop>
+      <Backdrop show={props.show} isClicked={props.fCancelPurchaseHandler}></Backdrop>
       <div className="Modal" style={style}>
         {props.children}
       </div>
