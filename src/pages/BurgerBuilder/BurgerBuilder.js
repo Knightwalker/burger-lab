@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+
 import Burger from "../../components/Burger/Burger.js";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls.js";
 import Modal from "../../components/UI/Modal/Modal.js";
@@ -88,8 +90,37 @@ class BurgerBuilder extends React.Component {
     this.setState({purchasing: false});
   }
 
-  fContinuePurchaseHandler = () => {
-    alert("You continue!");
+  fContinuePurchaseHandler = async () => {
+    // alert("You continue!");
+
+    let order = {
+      ingredients: this.state.ingredients,
+      price: this.state.totalPrice,
+      customer: {
+        name: "Max",
+        address: {
+          street: "Teststreet 1",
+          zipCode: "41351",
+          country: "Germany"
+        },
+        email: "test@test.com"
+      },
+      deliveryMethod: "fastest"
+    }
+
+    try {
+      let response = await axios({
+        method: "POST",
+        url: "https://burger-lab-1b7ce-default-rtdb.firebaseio.com/orders.json",
+        data: order
+      });
+  
+      console.log(response);
+      
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   render() {
