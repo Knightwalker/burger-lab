@@ -5,6 +5,9 @@ import Burger from "../../components/Burger/Burger.js";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls.js";
 import Modal from "../../components/UI/Modal/Modal.js";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary.js";
+import Loader from "../../components/UI/Loader/Loader.js";
+
+import GeneralErrorWrapper from "../../hoc/Errors/GeneralErrorWrapper.js";
 
 const INGREDIENT_PRICES = {
   salad: 0.5,
@@ -25,21 +28,38 @@ class BurgerBuilder extends React.Component {
       },
       totalPrice: 4,
       purchasable: false,
-      purchasing: false
+      bUserIsPurchasing: false,
+      loading: false,
+      bHasErrors: false,
+      objErrors: null
     }
   }
 
-  updatePurchaseState () {
+  componentDidMount = async () => {
+    
+    // try {
+    //   let response = await axios({
+    //     method: "GET",
+    //     url: "https://burger-lab-1b7ce-default-rtdb.firebaseio.com/orders.json",
+    //   });
+    //   this.setState({ingredients: response.data});
+    // } catch (err) {
+    //   console.log(err);
+    // }
+
+  }
+
+  updatePurchaseState() {
     const ingredients = { ...this.state.ingredients } // shallow copy
     const sum = Object.keys(ingredients)
-    .map(key => {
-      return ingredients[key];
-    })
-    .reduce((sum, el) => {
-      return sum + el; 
-    }, 0);
+      .map(key => {
+        return ingredients[key];
+      })
+      .reduce((sum, el) => {
+        return sum + el;
+      }, 0);
 
-    this.setState({purchasable: sum > 0});
+    this.setState({ purchasable: sum > 0 });
   }
 
   addIngredientHandler = (type) => {
@@ -83,15 +103,20 @@ class BurgerBuilder extends React.Component {
   }
 
   fPurchaseHandler = () => {
-    this.setState({purchasing: true});
+    this.setState({ bUserIsPurchasing: true });
   }
 
   fCancelPurchaseHandler = () => {
-    this.setState({purchasing: false});
+    this.setState({ 
+      bUserIsPurchasing: false, 
+      loading: false,
+      bHasErrors: false, 
+      objErrors: null
+    });
   }
 
   fContinuePurchaseHandler = async () => {
-    // alert("You continue!");
+    this.setState({ loading: true });
 
     let order = {
       ingredients: this.state.ingredients,
@@ -109,17 +134,20 @@ class BurgerBuilder extends React.Component {
     }
 
     try {
-      let response = await axios({
+      await await axios({
         method: "POST",
         url: "https://burger-lab-1b7ce-default-rtdb.firebaseio.com/orders.json",
         data: order
       });
-  
-      console.log(response);
-      
     } catch (error) {
-      console.log(error);
+      this.setState({ bHasErrors: true, objErrors: error });
+      return;
     }
+
+    // purchase was succesfull
+    setTimeout(() => {
+      this.setState({ loading: false, bUserIsPurchasing: false });
+    }, 2000);
 
   }
 
@@ -129,25 +157,40 @@ class BurgerBuilder extends React.Component {
       disabledInfo[key] = disabledInfo[key] <= 0
     }
 
+    let LoaderEl = null;
+    if (this.state.loading) {
+      LoaderEl = <Loader></Loader>
+    }
+
+    let OrderSummaryEl = null;
+    if (this.state.loading === false) {
+      OrderSummaryEl = (
+        <OrderSummary
+          ingredients={this.state.ingredients}
+          price={this.state.totalPrice}
+          fCancelPurchaseHandler={this.fCancelPurchaseHandler}
+          fContinuePurchaseHandler={this.fContinuePurchaseHandler}>
+        </OrderSummary>
+      );
+    }
+
     return (
       <React.Fragment>
-        <Modal show={this.state.purchasing} fCancelPurchaseHandler={this.fCancelPurchaseHandler}>
-          <OrderSummary 
-            ingredients={this.state.ingredients} 
-            price={this.state.totalPrice}
-            fCancelPurchaseHandler={this.fCancelPurchaseHandler} 
-            fContinuePurchaseHandler={this.fContinuePurchaseHandler}>   
-          </OrderSummary>
+        <Modal display={this.state.bUserIsPurchasing} clicked={this.fCancelPurchaseHandler}>
+          <GeneralErrorWrapper hasErrors={this.state.bHasErrors} objErrors={this.state.objErrors}>
+            {LoaderEl}
+            {OrderSummaryEl}
+          </GeneralErrorWrapper>
         </Modal>
-          <Burger ingredients={this.state.ingredients} />
-          <BuildControls
-            addIngredientHandler={this.addIngredientHandler} 
-            removeIngredientHandler={this.removeIngredientHandler}
-            disabled={disabledInfo}
-            price={this.state.totalPrice}
-            purchasable={this.state.purchasable}
-            fPurchaseHandler={this.fPurchaseHandler}>
-          </BuildControls>
+        <Burger ingredients={this.state.ingredients} />
+        <BuildControls
+          addIngredientHandler={this.addIngredientHandler}
+          removeIngredientHandler={this.removeIngredientHandler}
+          disabled={disabledInfo}
+          price={this.state.totalPrice}
+          purchasable={this.state.purchasable}
+          fPurchaseHandler={this.fPurchaseHandler}>
+        </BuildControls>
       </React.Fragment>
     );
   }
