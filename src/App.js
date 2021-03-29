@@ -1,17 +1,23 @@
 import React from "react";
-import Layout from "./components/Layout/Layout.js";
-import BurgerBuilder from "./pages/BurgerBuilder/BurgerBuilder.js";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Layout>
-          <BurgerBuilder></BurgerBuilder>
-        </Layout>
-      </div>
-    );
-  }
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/auth/LoginPage";
+import RegisterPage from "./pages/auth/RegisterPage";
+import './App.css';
+
+const App = () => {
+  return (
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route exact path="/" ><HomePage /></Route>
+          <Route exact path="/login" ><LoginPage /></Route>
+          <Route exact path="/register" ><RegisterPage /></Route>
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
 export default App;

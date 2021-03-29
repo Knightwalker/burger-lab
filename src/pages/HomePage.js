@@ -1,0 +1,40 @@
+import React, { useState, useEffect } from "react";
+import MainLayout from "../layouts/MainLayout";
+import ForumList from "../components/ForumList/ForumList.js";
+
+const HomePage = () => {
+  const [forums, setForums] = useState(null);
+  const [isLoadingForums, setIsLoadingForums] = useState(true);
+  const [hasErrorsLoadingForums, setHasErrorsLoadingForums] = useState(null);
+  
+  useEffect(() => {
+    fetch("http://localhost:5000/api/test")
+      .then((res) => {
+        if (!res.ok) {
+          throw Error ({message: "Count not GET data for that resource."});
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setForums(data);
+        setIsLoadingForums(false);
+      })
+      .catch((err) => {
+        setHasErrorsLoadingForums(err);
+        setIsLoadingForums(false);
+      });
+  }, []);
+
+  return (
+    <MainLayout>
+      <div className="HomePage">
+      { isLoadingForums ? <div>Loading...</div> : null }
+      { hasErrorsLoadingForums ? <div>ERROR: { hasErrorsLoadingForums.message } </div> : null}
+      { (isLoadingForums === false && !forums) ? <div>There are no forums</div> : null }
+      { (isLoadingForums === false && forums) ? <ForumList forums={forums}></ForumList> : null }
+      </div>
+    </MainLayout>
+  );
+}
+
+export default HomePage;
