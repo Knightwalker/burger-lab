@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import MainLayout from "../layouts/MainLayout";
-import ForumList from "../components/ForumList/ForumList.js";
+import MainLayout from "../../layouts/MainLayout";
+import ForumsList from "../../components/ForumsList/ForumsList.js";
+import "./HomePage.css";
 
 const HomePage = () => {
   const [forums, setForums] = useState(null);
@@ -31,7 +32,7 @@ const HomePage = () => {
       { isLoadingForums ? <div>Loading...</div> : null }
       { hasErrorsLoadingForums ? <div>ERROR: { hasErrorsLoadingForums.message } </div> : null}
       { (isLoadingForums === false && !forums) ? <div>There are no forums</div> : null }
-      { (isLoadingForums === false && forums) ? <ForumList forums={forums}></ForumList> : null }
+      { (isLoadingForums === false && forums) ? <ForumsList forums={forums}></ForumsList> : null }
       </div>
     </MainLayout>
   );
