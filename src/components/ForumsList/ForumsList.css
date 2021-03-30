@@ -3,32 +3,6 @@
   padding: 5px 15px;
 }
 
-.category {
-  background-color: #fffffb;
-  box-shadow: 5px 5px 10px rgb(0 0 0 / 50%);
-  border-radius: 5px;
-  margin-bottom: 25px;
-}
-
-.category__name {
-  background-color: #0bc4e2;
-  padding: 10px;
-  text-transform: capitalize;
-}
-
-.category__body {
-  padding: 10px 10px 5px 10px;
-}
-
-.forum {
-  display: flex;
-  background: #F2F2F2;
-  border: 1px solid #EEE!important;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  position: relative;
-}
-
 .forum__item3 {
   padding: 10px 10px 10px 10px;
   flex-grow: 1;
