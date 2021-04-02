@@ -3,7 +3,7 @@ import "./ForumsList.css";
 
 const ForumsList = (props) => {
   const forumsData = props.forums;
-
+ 
   return (
     <div className="forums">
       {forumsData.map((parent) => ( 
@@ -22,6 +22,14 @@ const ForumsList = (props) => {
                 <div className="forum__item3">
                   <Link to={`/forum/${child.slug}`}><div className={child.type + "__name"}>{child.name}</div></Link>
                   <div className={child.type + "__description"}>{child.description}</div>
+                </div>
+                <div className="forum__item4">
+                  <p className="forum__stats-number">{child.stats.topics_count}</p>
+                  <p className="forum__stats-text">Topics</p>
+                </div>
+                <div className="forum__item5">
+                  <p className="forum__stats-number">{child.stats.posts_count}</p>
+                  <p className="forum__stats-text">Replies</p>
                 </div>
               </div>
             ))}

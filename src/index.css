@@ -12,6 +12,11 @@ body {
 
 
 /* Grouping */
+p {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
 ul {
   list-style-type: none;
   margin-block-start: 0px;

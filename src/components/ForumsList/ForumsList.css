@@ -8,6 +8,22 @@
   flex-grow: 1;
 }
 
+.forum__item4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.forum__item5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .forum__img {
   background-color: #242a49;
   border: 5px #242a49;
@@ -16,4 +32,12 @@
   height: 114px;
   padding: 5px;
   width: 110px;
+}
+
+.forum__stats-number {
+  text-align: center;
+}
+
+.forum__stats-text {
+  text-align: center;
 }

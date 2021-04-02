@@ -1,0 +1,129 @@
+.btn-valorant {
+  /* Clean style */
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  /* Clean style */
+  
+  --button-text-color: #0f1923;
+  --button-text-color-hover: #ece8e1;
+  --border-color: #7D8082;
+  --button-background-color: #ece8e1;
+  --button-inner-border-color: transparent;
+  --button-bits-color: #0f1923;
+  --button-bits-color-hover: #ece8e1;
+  
+  position: relative;
+  padding: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all .15s ease;
+}
+
+.btn-valorant::before,
+.btn-valorant::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0; left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid var(--border-color);
+  transition: all .15s ease;
+}
+
+.btn-valorant::before {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.btn-valorant::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.btn-valorant:active,
+.btn-valorant:focus {
+  outline: none;
+}
+
+.btn-valorant:active::before,
+.btn-valorant:active::after {
+  right: 3px;
+  left: 3px;
+}
+
+.btn-valorant:active::before {
+  top: 3px;
+}
+
+.btn-valorant:active::after {
+  bottom: 3px;
+}
+
+.btn-valorant__inner {
+  position: relative;
+  display: block;
+  padding: 10px 30px;
+  background-color: var(--button-background-color);
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px var(--button-inner-border-color);
+}
+
+.btn-valorant__inner::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px;
+  height: 2px;
+  background-color: var(--button-bits-color);
+}
+
+.btn-valorant__inner::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0; bottom: 0;
+  width: 4px;
+  height: 4px;
+  background-color: var(--button-bits-color);
+  transition: all .2s ease;
+}
+
+.btn-valorant__slide {
+  display: block;
+  position: absolute;
+  top: 0; bottom: -1px; left: -8px;
+  width: 0;
+  background-color: black;
+  transform: skew(-15deg);
+  transition: all .2s ease;
+}
+
+.btn-valorant__content {
+  position: relative;
+}
+
+.btn-valorant:hover {
+  color: var(--button-text-color-hover);
+}
+
+.btn-valorant:hover .btn-valorant__slide {
+  width: calc(100% + 15px);
+}
+
+.btn-valorant:hover .btn-valorant__inner::after {
+  background-color: var(--button-bits-color-hover);
+}
+
+.btn-valorant--light {
+  --button-background-color: var(--background-color);
+  --button-text-color: #ff4655;
+  --button-inner-border-color: #ff4655;
+  --button-text-color-hover: #ece8e1;
+  --button-bits-color-hover: #ece8e1;
+}
