@@ -17,6 +17,7 @@ const HomePage = () => {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
         setForums(data);
         setIsLoadingForums(false);
       })

@@ -1,0 +1,9 @@
+.PostCreatePage {
+  background-color: #ece8e1;
+  padding: 5px 15px;
+}
+
+.post-create-page__form-content {
+  width: 80%;
+  height: 300px;
+}

@@ -27,7 +27,7 @@ const App = () => {
           <Route exact path="/forum/:slug" ><ForumPage /></Route>
           <Route exact path="/topic/:slug" ><TopicPage /></Route>
 
-          <Route exact path="/posts/create/:id" ><PostCreatePage /></Route>
+          <Route exact path="/posts/create/:topic_id" ><PostCreatePage /></Route>
         </Switch>
       </Router>
     </div>

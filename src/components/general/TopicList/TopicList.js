@@ -1,4 +1,4 @@
-import ValorantButton from "../../UI/Buttons/ValorantButton";
+import ValorantButtonLink from "../../UI/Buttons/ValorantButtonLink";
 import "./TopicList.css";
 
 const TopicList = (props) => {
@@ -17,7 +17,7 @@ const TopicList = (props) => {
                   <div>{post.user.username}</div>
                 </div>
                 <div className="post__main">
-                  <div className="post__head">{post.created_on}</div>
+                  <div className="post__head">{post.created_at}</div>
                   <div className="post__body">{post.content}</div>
                 </div>
               </div>
@@ -25,7 +25,7 @@ const TopicList = (props) => {
 
           </div>
           <div className="topic__foot">
-            <ValorantButton onClick={props.functions.fPostReply}>Post Reply</ValorantButton>
+            <ValorantButtonLink href={`/posts/create/${topic._id}`}>Post Reply</ValorantButtonLink>
           </div>
         </div>
     </div>
