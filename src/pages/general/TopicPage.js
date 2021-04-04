@@ -11,7 +11,7 @@ const TopicPage = () => {
   const [topic, setTopic] = useState(null);
   const [isLoadingTopic, setIsLoadingTopic] = useState(true);
   const [hasErrorsLoadingTopic, setHasErrorsLoadingTopic] = useState(null);
-  
+
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/topics/${slug}`)
       .then((res) => {
@@ -31,12 +31,7 @@ const TopicPage = () => {
         setHasErrorsLoadingTopic(err);
         setIsLoadingTopic(false);
       });
-      console.log("cycle")
   }, [slug]);
-
-  const fPostReply = () => {
-    console.log("kru");
-  }
 
   return (
     <MainLayout>
@@ -44,7 +39,7 @@ const TopicPage = () => {
       { isLoadingTopic ? <div>Loading...</div> : null }
       { hasErrorsLoadingTopic ? <div>ERROR: { hasErrorsLoadingTopic.message } </div> : null}
       { (isLoadingTopic === false && !topic) ? <div>There are no forums</div> : null }
-      { (isLoadingTopic === false && topic) ? <TopicList topic={topic} functions={{fPostReply}}></TopicList> : null }
+      { (isLoadingTopic === false && topic) ? <TopicList topic={topic}></TopicList> : null }
       </div>
     </MainLayout>
   );

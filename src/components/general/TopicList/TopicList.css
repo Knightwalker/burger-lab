@@ -5,18 +5,6 @@
   margin-bottom: 25px;
 }
 
-.topic__name {
-  background-color: #0bc4e2;
-  padding: 10px;
-  text-transform: capitalize;
-}
-
-.topic__foot {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 10px 10px 10px;
-}
-
 
 .user-container {
   width: 200px;

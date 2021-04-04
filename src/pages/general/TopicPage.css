@@ -1,8 +1,21 @@
+/* Topic */
+.topic-page__topic-head {
+  background-color: #0bc4e2;
+  padding: 10px;
+  text-transform: capitalize;
+}
 
 .topic-page__topic-body {
   padding: 0px 10px 0px 10px;
 }
 
+.topic-page__topic-foot {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px 10px 10px;
+}
+
+/* Posts */
 .topic-page__post {
   background: #F2F2F2;
 }
