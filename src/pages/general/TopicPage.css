@@ -1,0 +1,20 @@
+
+.topic-page__topic-body {
+  padding: 0px 10px 0px 10px;
+}
+
+.topic-page__post {
+  background: #F2F2F2;
+}
+
+.topic-page__post-row {
+  display: flex;
+}
+
+.topic-page__post-foot {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  padding: 2px;
+}

@@ -8,8 +8,10 @@ import GroupsPage from "./pages/home/GroupsPage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import ForumPage from "./pages/home/ForumPage";
-import TopicPage from "./pages/home/TopicPage";
+import TopicPage from "./pages/general/TopicPage";
+
 import PostCreatePage from "./pages/general/PostCreatePage";
+import PostDeletePage from "./pages/general/PostDeletePage";
 
 import './App.css';
 
@@ -28,6 +30,8 @@ const App = () => {
           <Route exact path="/topic/:slug" ><TopicPage /></Route>
 
           <Route exact path="/posts/create/:topic_id" ><PostCreatePage /></Route>
+          <Route exact path="/posts/delete/:post_id" ><PostDeletePage /></Route>
+          
         </Switch>
       </Router>
     </div>

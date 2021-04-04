@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import MainLayout from "../../layouts/MainLayout";
 import ValorantButton from "../../components/UI/Buttons/ValorantButton";
@@ -7,6 +7,7 @@ import "./PostCreatePage.css";
 
 const PostCreatePage = () => {
   const { topic_id } = useParams();
+  const history = useHistory();
   
   /**
    * using WebAPi, HTMLFormElement
@@ -34,6 +35,8 @@ const PostCreatePage = () => {
     } catch (error) {
       console.log(error);
     }
+
+    history.goBack();
 
   }
 

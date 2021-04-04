@@ -20,9 +20,5 @@ The forum software is based on the **MERN** technology stack, which consists of 
 - [EJS](https://ejs.co/)
 - [MongoDB](https://www.mongodb.com/)
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How To Run
+- In the project directory, you can run `npm start` to run the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

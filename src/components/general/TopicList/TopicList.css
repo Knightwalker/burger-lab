@@ -11,23 +11,12 @@
   text-transform: capitalize;
 }
 
-.topic__body {
-  padding: 10px 10px 0px 10px;
-}
-
 .topic__foot {
   display: flex;
   justify-content: flex-end;
-  padding: 0px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
 }
 
-.post {
-  display: flex;
-  background: #F2F2F2;
-  border: 1px solid #EEE!important;
-  border-radius: 3px;
-  margin-bottom: 10px;
-}
 
 .user-container {
   width: 200px;

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import MainLayout from "../../layouts/MainLayout";
 import TopicList from "../../components/general/TopicList/TopicList.js";
+import "./TopicPage.css";
 
 const TopicPage = () => {
   const { slug } = useParams();
