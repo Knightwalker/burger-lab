@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import MainLayout from "../../layouts/MainLayout";
-import TopicList from "../../components/general/TopicList/TopicList.js";
+import TopicList from "../../components/general/TopicList.js";
 import "./TopicPage.css";
 
 const TopicPage = () => {

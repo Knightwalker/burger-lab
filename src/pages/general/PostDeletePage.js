@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 
 import MainLayout from "../../layouts/MainLayout";
-import "./PostCreatePage.css";
+import "./PostPage.css";
 
 const PostDeletePage = () => {
   const { post_id } = useParams();

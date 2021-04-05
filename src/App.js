@@ -11,6 +11,7 @@ import ForumPage from "./pages/home/ForumPage";
 import TopicPage from "./pages/general/TopicPage";
 
 import PostCreatePage from "./pages/general/PostCreatePage";
+import PostEditPage from "./pages/general/PostEditPage";
 import PostDeletePage from "./pages/general/PostDeletePage";
 
 import './App.css';
@@ -30,6 +31,7 @@ const App = () => {
           <Route exact path="/topic/:slug" ><TopicPage /></Route>
 
           <Route exact path="/posts/create/:topic_id" ><PostCreatePage /></Route>
+          <Route exact path="/posts/edit/:post_id" ><PostEditPage /></Route>
           <Route exact path="/posts/delete/:post_id" ><PostDeletePage /></Route>
           
         </Switch>

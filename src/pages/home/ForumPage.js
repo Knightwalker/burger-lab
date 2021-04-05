@@ -16,7 +16,7 @@ const ForumPage = () => {
     fetch(`http://localhost:5000/api/v1/forums/${slug}`)
       .then((res) => {
         if (!res.ok) {
-          throw Error ({message: "Count not GET data for that resource."});
+          throw Error ("Count not GET data for that resource.");
         }
         return res.json();
       })
