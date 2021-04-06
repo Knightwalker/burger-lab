@@ -11,12 +11,12 @@ const ForumPage = () => {
   const [forum, setForum] = useState(null);
   const [isLoadingForum, setIsLoadingForum] = useState(true);
   const [hasErrorsLoadingForum, setHasErrorsLoadingForum] = useState(null);
-  
+
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/forums/${slug}`)
       .then((res) => {
         if (!res.ok) {
-          throw Error ("Count not GET data for that resource.");
+          throw Error("Count not GET data for that resource.");
         }
         return res.json();
       })
@@ -34,10 +34,12 @@ const ForumPage = () => {
   return (
     <MainLayout>
       <div className="ForumPage">
-      { isLoadingForum ? <div>Loading...</div> : null }
-      { hasErrorsLoadingForum ? <div>ERROR: { hasErrorsLoadingForum.message } </div> : null}
-      { (isLoadingForum === false && !forum) ? <div>There is no forum</div> : null }
-      { (isLoadingForum === false && forum) ? <ForumList forum={forum}></ForumList> : null }
+        <div className="container">
+          {isLoadingForum ? <div>Loading...</div> : null}
+          {hasErrorsLoadingForum ? <div>ERROR: {hasErrorsLoadingForum.message} </div> : null}
+          {(isLoadingForum === false && !forum) ? <div>There is no forum</div> : null}
+          {(isLoadingForum === false && forum) ? <ForumList forum={forum}></ForumList> : null}
+        </div>
       </div>
     </MainLayout>
   );

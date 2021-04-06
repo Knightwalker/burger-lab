@@ -5,11 +5,10 @@
 /* Head */
 body {
   margin: 0;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Inter-Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 /* Grouping */
 p {
