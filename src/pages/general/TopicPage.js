@@ -17,7 +17,7 @@ const TopicPage = () => {
       .then((res) => {
         if (!res.ok) {
           // console.log('err');
-          throw new Error({message: "Count not GET data for that resource."});
+          throw new Error({message: "Could not GET data for that resource."});
         }
         return res.json();
       })

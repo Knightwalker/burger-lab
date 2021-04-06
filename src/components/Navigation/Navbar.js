@@ -17,8 +17,8 @@ const Navbar = () => {
       </div>
       <div className="navbar__right">
         <ul className="nav__list-horizontal">
-          <li><Link to="/login"><div className="nav__item">Login</div></Link></li>
-          <li><Link to="/register"><div className="nav__item">Register</div></Link></li>
+          <li><Link to="/auth/login"><div className="nav__item">Login</div></Link></li>
+          <li><Link to="/auth/register"><div className="nav__item">Register</div></Link></li>
         </ul>
       </div>
     </nav>

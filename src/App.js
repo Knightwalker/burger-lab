@@ -14,6 +14,8 @@ import PostCreatePage from "./pages/general/PostCreatePage";
 import PostEditPage from "./pages/general/PostEditPage";
 import PostDeletePage from "./pages/general/PostDeletePage";
 
+import NotFoundPage from "./pages/errors/NotFoundPage";
+
 import './App.css';
 
 const App = () => {
@@ -25,15 +27,17 @@ const App = () => {
           <Route exact path="/users" ><UsersPage /></Route>
           <Route exact path="/users/:id" ><UserPage /></Route>
           <Route exact path="/groups" ><GroupsPage /></Route>
-          <Route exact path="/login" ><LoginPage /></Route>
-          <Route exact path="/register" ><RegisterPage /></Route>
           <Route exact path="/forum/:slug" ><ForumPage /></Route>
           <Route exact path="/topic/:slug" ><TopicPage /></Route>
 
           <Route exact path="/posts/create/:topic_id" ><PostCreatePage /></Route>
           <Route exact path="/posts/edit/:post_id" ><PostEditPage /></Route>
           <Route exact path="/posts/delete/:post_id" ><PostDeletePage /></Route>
-          
+
+          <Route exact path="/auth/login" ><LoginPage /></Route>
+          <Route exact path="/auth/register" ><RegisterPage /></Route>
+
+          <Route path="/"><NotFoundPage /></Route>
         </Switch>
       </Router>
     </div>
