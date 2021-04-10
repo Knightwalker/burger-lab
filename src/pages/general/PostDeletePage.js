@@ -39,9 +39,11 @@ const PostDeletePage = () => {
         <div className="container">
 
           <div className="main__head">Post a new reply</div>
-          <p>Are you sure you want to delete this post?</p>
-          <button onClick={fDeletePost}>Yes</button>
-          <button onClick={fGoBack}>No</button>
+          <div style={{backgroundColor: "#ece8e1", padding: "10px"}}>
+            <p>Are you sure you want to delete this post?</p>
+            <button onClick={fDeletePost}>Yes</button>
+            <button onClick={fGoBack}>No</button>
+          </div>
 
         </div>
       </div>

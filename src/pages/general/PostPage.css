@@ -1,11 +1,23 @@
 .PostCreatePage {
-  background-color: #ece8e1;
-  padding: 5px 15px;
+  /* background-color: #ece8e1; */
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .PostEditPage {
-  background-color: #ece8e1;
-  padding: 5px 15px;
+  /* background-color: #ece8e1; */
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.PostDeletePage {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.RegisterPage {
+  padding-top: 20px;
+  padding-bottom: 100px;
 }
 
 .post-create-page__form-content {

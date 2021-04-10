@@ -30,16 +30,34 @@ a {
 }
 
 
-main {
-  background-color: #ece8e1;
+/* Holy Grail Layout */
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
+main {
+  flex-grow: 1;
+}
+
+
+/* main {
+  background-color: #ece8e1;
+} */
 .main__head {
-  background-color: #0bc4e2;
+  /* background-color: #0bc4e2; */
+  background-color: #1a1c23;
+  color: #fffffb;
+  font-family: 'Inter-Bold';
+  font-size: 24px;
   padding: 10px;
   text-transform: capitalize;
 }
 
-
+#post-create-page__form {
+  background-color: #ece8e1;
+  padding: 10px;
+}
 
 
 /* UserPage */
@@ -74,8 +92,12 @@ main {
 }
 
 .user-panel_head {
-  background-color: #0bc4e2;
+  /* background-color: #0bc4e2; */
   padding: 10px;
+  background-color: #1a1c23;
+  color: #fffffb;
+  font-family: 'Inter-Bold';
+  font-size: 24px;
   text-transform: capitalize;
 }
 
@@ -90,4 +112,56 @@ main {
 
 .user-container__avatar {
   width: 150px;
+}
+
+
+
+
+
+/* Blizzard Skin */
+
+body {
+  background: url(https://d3mle2j3as33lk.cloudfront.net/en/blizzard/plugins/discourse-blizzard-themes/images/backgrounds/blizzard/top.jpg) center -200px no-repeat,url(https://d3mle2j3as33lk.cloudfront.net/en/blizzard/plugins/discourse-blizzard-themes/images/backgrounds/blizzard/repeat.jpg) center -200px repeat-y;
+    background-color: #012750;
+}
+.nav__logo {
+  color: #fffffb !important;
+}
+.nav__item {
+  color: #fffffb !important;
+}
+
+.nav__item::after {
+  background: #fffffb !important;
+}
+
+
+
+/* Footer */
+.footer {
+  background-color: #0a4275;
+  text-align: center;
+  color: white;
+}
+.footer-container {
+  padding: 1.5rem!important;
+  display: flex;
+  justify-content: center;
+}
+.footer-item1 {
+  width: 400px;
+}
+.footer-item1 p {
+  text-align: justify;
+}
+.footer-item2 {
+  width: 300px;
+}
+.footer-item3 {
+  width: 300px;
+}
+
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
 }

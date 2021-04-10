@@ -1,6 +1,6 @@
 .HomePage {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 .container-parent {
@@ -11,7 +11,11 @@
 }
 
 .container-parent__name {
-  background-color: #0bc4e2;
+  /* background-color: #0bc4e2; */
+  background-color: #1a1c23;
+  color: #fffffb;
+  font-family: 'Inter-Bold';
+  font-size: 24px;
   padding: 10px;
   text-transform: capitalize;
 }
