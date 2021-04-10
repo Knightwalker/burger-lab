@@ -46,3 +46,7 @@
     width: 1600px;
   }
 }
+
+.d-flex {
+  display: flex;
+}

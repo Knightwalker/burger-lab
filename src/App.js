@@ -25,7 +25,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" ><HomePage /></Route>
           <Route exact path="/users" ><UsersPage /></Route>
-          <Route exact path="/users/:id" ><UserPage /></Route>
+          <Route       path="/users/:user_id" ><UserPage /></Route>
           <Route exact path="/groups" ><GroupsPage /></Route>
           <Route exact path="/forum/:slug" ><ForumPage /></Route>
           <Route exact path="/topic/:slug" ><TopicPage /></Route>

@@ -8,6 +8,7 @@ const Navbar = () => {
   const authenticationContext = useContext(AuthenticationContext);
   const bUserIsAuthenticated = authenticationContext.objUser.bUserIsAuthenticated;
   const username = authenticationContext.objUser.username;
+  const user_id = authenticationContext.objUser.user_id;
   
   return (
     <nav className="navbar">
@@ -22,9 +23,14 @@ const Navbar = () => {
       </div>
       <div className="navbar__right">
         <ul className="nav__list-horizontal">
-          {bUserIsAuthenticated ? (<li><div className="nav__item">Welcome {username}</div></li>) : (<li><div className="nav__item">Welcome Guest</div></li>)}
-          <li><Link to="/auth/login"><div className="nav__item">Login</div></Link></li>
-          <li><Link to="/auth/register"><div className="nav__item">Register</div></Link></li>
+          {bUserIsAuthenticated ? (
+            <li><Link to={`/users/${user_id}/account_overview`}><div className="nav__logo">Welcome, {username}</div></Link></li>
+          ) : (
+            <>
+              <li><Link to="/auth/login"><div className="nav__item">Login</div></Link></li>
+              <li><Link to="/auth/register"><div className="nav__item">Register</div></Link></li>
+            </>
+          )}
         </ul>
       </div>
     </nav>

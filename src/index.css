@@ -38,3 +38,56 @@ main {
   padding: 10px;
   text-transform: capitalize;
 }
+
+
+
+
+/* UserPage */
+.UserPage { 
+  padding: 20px;
+}
+
+.UserNavbar {
+  width: 300px;
+  background-color: #fffffb;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 50%);
+  border-radius: 5px;
+
+  padding: 20px;
+  text-align: center;
+}
+
+.UserNavbar li:hover {
+  cursor: pointer;
+  font-family: "Inter-Bold";
+}
+.UserNavbar a.active {
+  font-family: "Inter-Bold";
+}
+
+.UserPanel {
+  background-color: #fffffb;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 50%);
+  border-radius: 5px;
+  flex-grow: 1;
+  margin-left: 25px;
+}
+
+.user-panel_head {
+  background-color: #0bc4e2;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+.user-panel_body {
+  padding: 0px 10px 0px 10px;
+}
+
+.AccountOverview {
+  background: #F2F2F2;
+  display: flex;
+}
+
+.user-container__avatar {
+  width: 150px;
+}

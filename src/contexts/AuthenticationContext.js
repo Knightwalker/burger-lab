@@ -3,20 +3,14 @@ import React, { createContext, useEffect, useState } from "react";
 const AuthenticationContext = createContext();
 
 const AuthenticationContextProvider = (props) => {
-  const [ token, setToken ] = useState(null);
   const [ objUser, setObjUser ] = useState({
     bUserIsAuthenticated: false,
-    username: "guest"
+    username: "guest",
   });
+  const [ token, setToken ] = useState(null);
 
   useEffect(() => {
-    if (!token) {
-      setObjUser({
-        bUserIsAuthenticated: false,
-        username: "guest"
-      });
-      return;
-    }
+    if (!token) { return; }
 
     setObjUser({
       bUserIsAuthenticated: true,
@@ -30,11 +24,20 @@ const AuthenticationContextProvider = (props) => {
     setToken(token);
   }
 
+  const fLogoutUser = () => {
+    setObjUser({
+      bUserIsAuthenticated: false,
+      username: "guest",
+    });
+    setToken(null);
+  }
+
   return (
     <AuthenticationContext.Provider 
       value={{
         objUser: objUser,
-        loginUserWithJWT: loginUserWithJWT
+        loginUserWithJWT: loginUserWithJWT,
+        fLogoutUser: fLogoutUser
       }} 
     >
       {props.children}

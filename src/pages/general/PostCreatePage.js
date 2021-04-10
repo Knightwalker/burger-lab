@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import { AuthenticationContext } from "../../contexts/AuthenticationContext";
 
 import MainLayout from "../../layouts/MainLayout";
 import ValorantButton from "../../components/UI/Buttons/ValorantButton";
@@ -8,18 +9,24 @@ import "./PostPage.css";
 const PostCreatePage = () => {
   const { topic_id } = useParams();
   const history = useHistory();
+  const authenticationContext = useContext(AuthenticationContext);
+  const { bUserIsAuthenticated, user_id } = authenticationContext.objUser;
 
   /**
    * using WebAPi, HTMLFormElement
    * @see: https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement
   */
   const fPostCreate = async (e) => {
+    // Stage 1. Guards
     e.preventDefault();
+    if (!bUserIsAuthenticated) { return; }
+
     const formData = document.forms["post-create-page__form"].elements;
     const title = formData["post-create-page__form-title"].value || "";
     const content = formData["post-create-page__form-content"].value || "";
 
     const data = {
+      user_id: user_id,
       title: title,
       content: content
     }
