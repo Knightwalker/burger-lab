@@ -5,7 +5,9 @@ const UsersPage = () => {
   return (
     <MainLayout>
       <div className="UsersPage">
-        <h1>All Users</h1>
+        <div className="container">
+          <h1>All Users</h1>
+        </div>
       </div>
     </MainLayout>
   );

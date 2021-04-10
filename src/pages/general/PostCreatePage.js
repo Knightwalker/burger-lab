@@ -8,7 +8,7 @@ import "./PostPage.css";
 const PostCreatePage = () => {
   const { topic_id } = useParams();
   const history = useHistory();
-  
+
   /**
    * using WebAPi, HTMLFormElement
    * @see: https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement
@@ -45,42 +45,44 @@ const PostCreatePage = () => {
   return (
     <MainLayout>
       <div className="PostCreatePage">
-        <div className="main__head">New Post</div>
-              
-        <form id="post-create-page__form">
-          <div className="container-fluid">
-            <div className="row pb-1">
-              <div className="col-2 text-end">
-                <label htmlFor="post-create-page__form-title">Post title</label>    
-              </div>
-              <div className="col">
-                <input id="post-create-page__form-title" type="text"/>
-              </div>          
-            </div>
+        <div className="container">
+          <div className="main__head">New Post</div>
 
-            <div className="row">
-              <div className="col-2 text-end">
-                <label htmlFor="post-create-page__form-content">Message</label>    
+          <form id="post-create-page__form">
+            <div className="container-fluid">
+              <div className="row pb-1">
+                <div className="col-2 text-end">
+                  <label htmlFor="post-create-page__form-title">Post title</label>
+                </div>
+                <div className="col">
+                  <input id="post-create-page__form-title" type="text" />
+                </div>
               </div>
-              <div className="col">
-                <textarea id="post-create-page__form-content" className="post-create-page__form-content"></textarea>
-              </div>          
-            </div>
 
-            <div className="row">
-              <div className="col-2 text-end">
-                <p>Information</p>     
+              <div className="row">
+                <div className="col-2 text-end">
+                  <label htmlFor="post-create-page__form-content">Message</label>
+                </div>
+                <div className="col">
+                  <textarea id="post-create-page__form-content" className="post-create-page__form-content"></textarea>
+                </div>
               </div>
-              <div className="col">
-                <p>HTML is ON</p>
-                <p>BBCode is ON</p>
-                <p>Smiles are OFF</p>
-                <ValorantButton onClick={fPostCreate}>Send</ValorantButton>
-              </div>          
+
+              <div className="row">
+                <div className="col-2 text-end">
+                  <p>Information</p>
+                </div>
+                <div className="col">
+                  <p>HTML is ON</p>
+                  <p>BBCode is ON</p>
+                  <p>Smiles are OFF</p>
+                  <ValorantButton onClick={fPostCreate}>Send</ValorantButton>
+                </div>
+              </div>
             </div>
-          </div>
-        </form>
-        
+          </form>
+
+        </div>
       </div>
     </MainLayout>
   );

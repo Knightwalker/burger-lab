@@ -9,7 +9,9 @@ const UserPage = () => {
   return (
     <MainLayout>
       <div className="UserPage">
-        <h1>User - {id}</h1>
+        <div className="container">
+          <h1>User - {id}</h1>
+        </div>
       </div>
     </MainLayout>
   );

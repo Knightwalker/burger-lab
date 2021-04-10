@@ -4,9 +4,13 @@ import "./index.css";
 import "./cg_containers.css";
 import App from "./App";
 
+import AuthenticationContextProvider from "./contexts/AuthenticationContext.js";
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthenticationContextProvider>
+      <App />
+    </AuthenticationContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

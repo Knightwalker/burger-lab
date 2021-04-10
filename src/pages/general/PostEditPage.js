@@ -9,13 +9,13 @@ const PostEditPage = () => {
   const { post_id } = useParams();
   const history = useHistory();
 
-  const [ post, setPost ] = useState(null);
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/posts/${post_id}`)
       .then((res) => {
         if (!res.ok) {
-          throw Error ("Could not GET data for that resource.");
+          throw Error("Could not GET data for that resource.");
         }
         return res.json();
       })
@@ -26,7 +26,7 @@ const PostEditPage = () => {
         console.log(error);
       });
   }, [post_id]);
-  
+
   /**
    * using WebAPi, HTMLFormElement
    * @see: https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement
@@ -64,46 +64,49 @@ const PostEditPage = () => {
   return (
     <MainLayout>
       <div className="PostEditPage">
-        <div className="main__head">Edit Post</div>
-        
-        { post ? (
-          <form id="post-create-page__form">
-          <div className="container-fluid">
-            <div className="row pb-1">
-              <div className="col-2 text-end">
-                <label htmlFor="post-create-page__form-title">Post title</label>    
-              </div>
-              <div className="col">
-                <input id="post-create-page__form-title" type="text" defaultValue={post.title}/>
-              </div>          
-            </div>
+        <div className="container">
 
-            <div className="row">
-              <div className="col-2 text-end">
-                <label htmlFor="post-create-page__form-content">Message</label>    
-              </div>
-              <div className="col">
-                <textarea id="post-create-page__form-content" className="post-create-page__form-content" defaultValue={post.content}></textarea>
-              </div>          
-            </div>
+          <div className="main__head">Edit Post</div>
 
-            <div className="row">
-              <div className="col-2 text-end">
-                <p>Information</p>     
+          {post ? (
+            <form id="post-create-page__form">
+              <div className="container-fluid">
+                <div className="row pb-1">
+                  <div className="col-2 text-end">
+                    <label htmlFor="post-create-page__form-title">Post title</label>
+                  </div>
+                  <div className="col">
+                    <input id="post-create-page__form-title" type="text" defaultValue={post.title} />
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-2 text-end">
+                    <label htmlFor="post-create-page__form-content">Message</label>
+                  </div>
+                  <div className="col">
+                    <textarea id="post-create-page__form-content" className="post-create-page__form-content" defaultValue={post.content}></textarea>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-2 text-end">
+                    <p>Information</p>
+                  </div>
+                  <div className="col">
+                    <p>HTML is ON</p>
+                    <p>BBCode is ON</p>
+                    <p>Smiles are OFF</p>
+                    <ValorantButton onClick={fPostEdit}>Send</ValorantButton>
+                  </div>
+                </div>
               </div>
-              <div className="col">
-                <p>HTML is ON</p>
-                <p>BBCode is ON</p>
-                <p>Smiles are OFF</p>
-                <ValorantButton onClick={fPostEdit}>Send</ValorantButton>
-              </div>          
-            </div>
-          </div>
-        </form>
-        ) : (
-          <div>Loading...</div>
-        ) }
-        
+            </form>
+          ) : (
+            <div>Loading...</div>
+          )}
+
+        </div>
       </div>
     </MainLayout>
   );

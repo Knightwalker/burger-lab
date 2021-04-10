@@ -7,7 +7,7 @@ import "./PostPage.css";
 const PostDeletePage = () => {
   const { post_id } = useParams();
   const history = useHistory();
-  
+
   /**
    * using WebAPi, HTMLFormElement
    * @see: https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement
@@ -36,10 +36,14 @@ const PostDeletePage = () => {
   return (
     <MainLayout>
       <div className="PostDeletePage">
-        <div className="main__head">Post a new reply</div>
-        Are you sure you want to delete this post?
-        <button onClick={fDeletePost}>Yes</button>
-        <button onClick={fGoBack}>No</button>
+        <div className="container">
+
+          <div className="main__head">Post a new reply</div>
+          <p>Are you sure you want to delete this post?</p>
+          <button onClick={fDeletePost}>Yes</button>
+          <button onClick={fGoBack}>No</button>
+
+        </div>
       </div>
     </MainLayout>
   );

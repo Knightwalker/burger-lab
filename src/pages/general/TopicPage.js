@@ -36,10 +36,12 @@ const TopicPage = () => {
   return (
     <MainLayout>
       <div className="TopicPage">
-      { isLoadingTopic ? <div>Loading...</div> : null }
-      { hasErrorsLoadingTopic ? <div>ERROR: { hasErrorsLoadingTopic.message } </div> : null}
-      { (isLoadingTopic === false && !topic) ? <div>There are no forums</div> : null }
-      { (isLoadingTopic === false && topic) ? <TopicList topic={topic}></TopicList> : null }
+        <div className="container">
+          { isLoadingTopic ? <div>Loading...</div> : null }
+          { hasErrorsLoadingTopic ? <div>ERROR: { hasErrorsLoadingTopic.message } </div> : null}
+          { (isLoadingTopic === false && !topic) ? <div>There are no forums</div> : null }
+          { (isLoadingTopic === false && topic) ? <TopicList topic={topic}></TopicList> : null }
+        </div>
       </div>
     </MainLayout>
   );

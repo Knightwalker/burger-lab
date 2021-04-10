@@ -5,8 +5,6 @@ import HomePage from "./pages/home/HomePage";
 import UserPage from "./pages/home/UserPage";
 import UsersPage from "./pages/home/UsersPage";
 import GroupsPage from "./pages/home/GroupsPage";
-import LoginPage from "./pages/auth/LoginPage";
-import RegisterPage from "./pages/auth/RegisterPage";
 import ForumPage from "./pages/home/ForumPage";
 import TopicPage from "./pages/general/TopicPage";
 
@@ -14,11 +12,13 @@ import PostCreatePage from "./pages/general/PostCreatePage";
 import PostEditPage from "./pages/general/PostEditPage";
 import PostDeletePage from "./pages/general/PostDeletePage";
 
+import LoginPage from "./pages/auth/LoginPage";
+import RegisterPage from "./pages/auth/RegisterPage";
+
 import NotFoundPage from "./pages/errors/NotFoundPage";
 
-import './App.css';
-
 const App = () => {
+
   return (
     <div className="App">
       <Router>

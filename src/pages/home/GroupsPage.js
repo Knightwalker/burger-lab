@@ -5,7 +5,9 @@ const GroupsPage = () => {
   return (
     <MainLayout>
       <div className="GroupsPage">
-        <h1>All Groups</h1>
+        <div className="container">
+          <h1>All Groups</h1>
+        </div>
       </div>
     </MainLayout>
   );

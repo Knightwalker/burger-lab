@@ -42,8 +42,8 @@ const RegisterPage = () => {
         setHasErrors(true);
         setArrErrors(result.arrErrors);
         return;
-      } 
-        
+      }
+
       setHasErrors(false);
       setArrErrors([]);
       history.push("/");
@@ -73,82 +73,84 @@ const RegisterPage = () => {
   return (
     <MainLayout>
       <div className="RegisterPage">
+        <div className="container">
 
-        <div className="register__h1">Create Your Account</div>
-        
-        {(hasErrors) ? ( <div className="login__errors-container">
-          {arrErrors.map((error, i) => 
-            <div key={i}>{error.message}</div>
-          )}
-        </div> ) : (null)}
-        
-        <div className="register__container">
-          <form id="register__form" autoComplete="off" onSubmit={fOnSubmit}>
+          <div className="register__h1">Create Your Account</div>
 
-            <div className="register__grid">
-              <div className="register__grid_icon"><img src="/assets/auth/username.png" alt=""></img></div>
-              <label className="register__grid_label">Username</label>
-              <input className="register__grid_input" type="text" name="username"
-                onFocus={fOnFocusInFocusOutVisuals.bind(this, "username", "focusin")}
-                onBlur={fOnFocusInFocusOutVisuals.bind(this, "username", "focusout")}
-              />
-              <div className="register__grid_error"></div>
-            </div>
+          {(hasErrors) ? (<div className="login__errors-container">
+            {arrErrors.map((error, i) =>
+              <div key={i}>{error.message}</div>
+            )}
+          </div>) : (null)}
 
-            <div className="register__grid">
-              <div className="register__grid_icon"><img src="/assets/auth/shield.png" alt="shield"></img></div>
-              <label className="register__grid_label">Password</label>
-              <input className="register__grid_input" type="password" name="password"
-                onFocus={fOnFocusInFocusOutVisuals.bind(this, "password", "focusin")}
-                onBlur={fOnFocusInFocusOutVisuals.bind(this, "password", "focusout")} 
-              />
-              <div className="register__grid_error"></div>
-            </div>
+          <div className="register__container">
+            <form id="register__form" autoComplete="off" onSubmit={fOnSubmit}>
 
-            <div className="register__grid">
-              <div className="register__grid_icon"><img src="/assets/auth/shield.png" alt="shield"></img></div>
-              <label className="register__grid_label">Confirm Password</label>
-              <input className="register__grid_input" type="password" name="passwordRe"
-                onFocus={fOnFocusInFocusOutVisuals.bind(this, "passwordre", "focusin")}
-                onBlur={fOnFocusInFocusOutVisuals.bind(this, "passwordre", "focusout")}
-              />
-              <div className="register__grid_error"></div>
-            </div>
-
-            <div className="register__grid">
-              <div className="register__grid_icon"><img src="/assets/auth/post.png" alt="post"></img></div>
-              <label className="register__grid_label">Email</label>
-              <input className="register__grid_input" type="text" name="email"
-                onFocus={fOnFocusInFocusOutVisuals.bind(this, "email", "focusin")}
-                onBlur={fOnFocusInFocusOutVisuals.bind(this, "email", "focusout")}
-              />
-              <div className="register__grid_error"></div>
-            </div>
-
-            <div className="register__normalbox">
-              <div>
-              <input id="verify_age" type="checkbox" name="verify_age" />
-                <label htmlFor="verify_age">I am over 18 years of age.</label>
+              <div className="register__grid">
+                <div className="register__grid_icon"><img src="/assets/auth/username.png" alt=""></img></div>
+                <label className="register__grid_label">Username</label>
+                <input className="register__grid_input" type="text" name="username"
+                  onFocus={fOnFocusInFocusOutVisuals.bind(this, "username", "focusin")}
+                  onBlur={fOnFocusInFocusOutVisuals.bind(this, "username", "focusout")}
+                />
+                <div className="register__grid_error"></div>
               </div>
-              <div>
-              <input id="verify_tos" type="checkbox" name="verify_tos" />
-                <label htmlFor="verify_tos">I agree to the <a href="/">Terms and Conditions.</a></label>
+
+              <div className="register__grid">
+                <div className="register__grid_icon"><img src="/assets/auth/shield.png" alt="shield"></img></div>
+                <label className="register__grid_label">Password</label>
+                <input className="register__grid_input" type="password" name="password"
+                  onFocus={fOnFocusInFocusOutVisuals.bind(this, "password", "focusin")}
+                  onBlur={fOnFocusInFocusOutVisuals.bind(this, "password", "focusout")}
+                />
+                <div className="register__grid_error"></div>
               </div>
-              <br />
-              <p>*An email confirmation will be sent to this address to verify it before you can log in.</p>
-            </div>
 
-            <input className="register__form_button" type="submit" name="register_form" value="register" />
-            <hr className="register__hr"></hr>
+              <div className="register__grid">
+                <div className="register__grid_icon"><img src="/assets/auth/shield.png" alt="shield"></img></div>
+                <label className="register__grid_label">Confirm Password</label>
+                <input className="register__grid_input" type="password" name="passwordRe"
+                  onFocus={fOnFocusInFocusOutVisuals.bind(this, "passwordre", "focusin")}
+                  onBlur={fOnFocusInFocusOutVisuals.bind(this, "passwordre", "focusout")}
+                />
+                <div className="register__grid_error"></div>
+              </div>
 
-            <div>
-              <p>Already have an account?</p>
-              <p className="register__block"><Link to="/auth/login">Login</Link> or <Link to="/">Reset Password</Link></p>
-            </div>
+              <div className="register__grid">
+                <div className="register__grid_icon"><img src="/assets/auth/post.png" alt="post"></img></div>
+                <label className="register__grid_label">Email</label>
+                <input className="register__grid_input" type="text" name="email"
+                  onFocus={fOnFocusInFocusOutVisuals.bind(this, "email", "focusin")}
+                  onBlur={fOnFocusInFocusOutVisuals.bind(this, "email", "focusout")}
+                />
+                <div className="register__grid_error"></div>
+              </div>
 
-          </form>
+              <div className="register__normalbox">
+                <div>
+                  <input id="verify_age" type="checkbox" name="verify_age" />
+                  <label htmlFor="verify_age">I am over 18 years of age.</label>
+                </div>
+                <div>
+                  <input id="verify_tos" type="checkbox" name="verify_tos" />
+                  <label htmlFor="verify_tos">I agree to the <a href="/">Terms and Conditions.</a></label>
+                </div>
+                <br />
+                <p>*An email confirmation will be sent to this address to verify it before you can log in.</p>
+              </div>
+
+              <input className="register__form_button" type="submit" name="register_form" value="register" />
+              <hr className="register__hr"></hr>
+
+              <div>
+                <p>Already have an account?</p>
+                <p className="register__block"><Link to="/auth/login">Login</Link> or <Link to="/">Reset Password</Link></p>
+              </div>
+
+            </form>
+          </div>
+
         </div>
-
       </div>
     </MainLayout>
   );
