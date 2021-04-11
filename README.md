@@ -3,6 +3,7 @@
 Forum-FE is my defense project for the ReactJS course at [SoftUni](https://softuni.bg/). The software is powered by a Node.js backend and supports a MongoDB database. The project overview, architecture and technology stack is reviewed bellow:
 
 ![Screenshot](public/readme_picture.png?raw=true "Screenshot")
+![Screenshot2](public/readme_picture2.png?raw=true "Screenshot2")
 
 ## :pencil: Overview
 Forum is a general-purpose forum software for collaborative communication. It can be used from companies, who can showcase their products and open a general discussion boards for them or for people who are fans of fantasy books, movies, TV series and they just want to reveal, and discuss with others their deeply hidden imaginations. The project's primary goal is to be a simple, modern, mobile-responsive and easy for navigation. It provides an opportunity for participants to choose their own avatars, start discussions on new topics and join in ongoing discussions.
