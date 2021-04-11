@@ -10,7 +10,7 @@ const PostCreatePage = () => {
   const { forum_id } = useParams();
   const history = useHistory();
   const authenticationContext = useContext(AuthenticationContext);
-  const { bUserIsAuthenticated, user_id } = authenticationContext.objUser;
+  const { bUserIsAuthenticated, user_id, username } = authenticationContext.objUser;
 
   /**
    * using WebAPi, HTMLFormElement
@@ -28,7 +28,8 @@ const PostCreatePage = () => {
     const data = {
       user_id: user_id,
       title: title,
-      content: content
+      content: content,
+      username: username
     }
 
     try {

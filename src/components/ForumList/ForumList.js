@@ -24,7 +24,7 @@ const ForumList = (props) => {
                   <p>{child.stats.posts_count} Replies</p>
                   <p>{child.stats.topic_views} Views</p>
                 </div>
-                <div>Last User Posted - WIP</div>
+                <div>Last User Posted: {child.last_post_user}</div>
               </div>
             ))}
 
