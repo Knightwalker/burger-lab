@@ -26,6 +26,7 @@ const TopicList = (props) => {
 
           </div>
           <div className="topic-page__topic-foot ">
+            <ValorantButtonLink href={`/topics/delete/${topic._id}`}>Delete Topic</ValorantButtonLink>
             <ValorantButtonLink href={`/posts/create/${topic._id}`}>Post Reply</ValorantButtonLink>
           </div>
 

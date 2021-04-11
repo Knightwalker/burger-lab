@@ -3,4 +3,6 @@
   background-image: url(https://d3mle2j3as33lk.cloudfront.net/en/blizzard/plugins/discourse-blizzard-themes/images/banners/blizzard/glass.jpg);
   color: #324062;
   background-color: #012750;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
 }

@@ -30,7 +30,7 @@ const ForumList = (props) => {
 
           </div>
           <div className="container-forum__foot">
-            <a href={`/topics/create/${parent._id}`}><img src="/assets/btn_new-topic.png" alt="new-topic"></img></a>
+            <Link to={`/topics/create/${parent._id}`}><img src="/assets/btn_new-topic.png" alt="new-topic"></img></Link>
           </div>
 
         </div>

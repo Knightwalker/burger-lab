@@ -9,6 +9,9 @@ import GroupsPage from "./pages/home/GroupsPage";
 import ForumPage from "./pages/home/ForumPage";
 import TopicPage from "./pages/general/TopicPage";
 
+import TopicCreatePage from "./pages/general/TopicCreatePage";
+import TopicDeletePage from "./pages/general/TopicDeletePage";
+
 import PostCreatePage from "./pages/general/PostCreatePage";
 import PostEditPage from "./pages/general/PostEditPage";
 import PostDeletePage from "./pages/general/PostDeletePage";
@@ -32,6 +35,9 @@ const App = () => {
           <Route exact path="/groups" ><GroupsPage /></Route>
           <Route exact path="/forum/:slug" ><ForumPage /></Route>
           <Route exact path="/topic/:slug" ><TopicPage /></Route>
+
+          <Route exact path="/topics/create/:forum_id">{ bUserIsAuthenticated ? (<TopicCreatePage />) : (<Redirect to="/auth/login" />)}</Route>
+          <Route exact path="/topics/delete/:topic_id">{ bUserIsAuthenticated ? (<TopicDeletePage />) : (<Redirect to="/auth/login" />)}</Route>
 
           <Route exact path="/posts/create/:topic_id">{ bUserIsAuthenticated ? (<PostCreatePage />) : (<Redirect to="/auth/login" />)}</Route>
           <Route exact path="/posts/edit/:post_id" >{ bUserIsAuthenticated ? (<PostEditPage />) : (<Redirect to="/auth/login" />)}</Route>
