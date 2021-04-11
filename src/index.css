@@ -165,3 +165,22 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
   padding: 1rem;
 }
+
+.UsersPage {
+  color: white;
+  padding-bottom: 20px;
+}
+.UsersPage__user {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.users-page__item1 {
+  width: 100px;
+}
+
+.GroupsPage {
+  color: white;
+  padding-bottom: 20px;
+}

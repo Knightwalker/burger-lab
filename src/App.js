@@ -1,5 +1,6 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+import { AuthenticationContext } from "./contexts/AuthenticationContext";
 
 import HomePage from "./pages/home/HomePage";
 import UserPage from "./pages/home/UserPage";
@@ -18,6 +19,8 @@ import RegisterPage from "./pages/auth/RegisterPage";
 import NotFoundPage from "./pages/errors/NotFoundPage";
 
 const App = () => {
+  const authenticationContext = useContext(AuthenticationContext);
+  const bUserIsAuthenticated = authenticationContext.objUser.bUserIsAuthenticated;
 
   return (
     <div className="App">
@@ -30,9 +33,9 @@ const App = () => {
           <Route exact path="/forum/:slug" ><ForumPage /></Route>
           <Route exact path="/topic/:slug" ><TopicPage /></Route>
 
-          <Route exact path="/posts/create/:topic_id" ><PostCreatePage /></Route>
-          <Route exact path="/posts/edit/:post_id" ><PostEditPage /></Route>
-          <Route exact path="/posts/delete/:post_id" ><PostDeletePage /></Route>
+          <Route exact path="/posts/create/:topic_id">{ bUserIsAuthenticated ? (<PostCreatePage />) : (<Redirect to="/auth/login" />)}</Route>
+          <Route exact path="/posts/edit/:post_id" >{ bUserIsAuthenticated ? (<PostEditPage />) : (<Redirect to="/auth/login" />)}</Route>
+          <Route exact path="/posts/delete/:post_id" >{ bUserIsAuthenticated ? (<PostDeletePage />) : (<Redirect to="/auth/login" />)}</Route>
 
           <Route exact path="/auth/login" ><LoginPage /></Route>
           <Route exact path="/auth/register" ><RegisterPage /></Route>

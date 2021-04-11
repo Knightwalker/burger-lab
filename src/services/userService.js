@@ -1,3 +1,18 @@
+export const getAll = () => {
+  return fetch(`http://localhost:5000/api/v1/users`, {
+    method: "GET",
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.status === "failed") {
+        console.log("failed...");
+      }
+
+      return data.users;
+    })
+    .catch(error => { console.log(error); });
+}
+
 export const getOneById = (user_id) => {
   return fetch(`http://localhost:5000/api/v1/users/${user_id}`, {
     method: "GET",
@@ -78,6 +93,22 @@ export const editPasswordById = (user_id, password) => {
       }
 
       return data;
+    })
+    .catch(error => { console.log(error); });
+}
+
+
+export const getAllGroups = () => {
+  return fetch(`http://localhost:5000/api/v1/groups`, {
+    method: "GET",
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.status === "failed") {
+        console.log("failed...");
+      }
+
+      return data.groups;
     })
     .catch(error => { console.log(error); });
 }
