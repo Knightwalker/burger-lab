@@ -14,6 +14,9 @@ The forum software is based on the **MERN** technology stack, which consists of 
 ### Front-End
 - [React](https://reactjs.org/)
 - react-router-dom, the famous routing library for react.
+- CSS Modules
+- Context API
+- Custom Build Authentication via JWT
 - Web APIs & Interfaces: We utilize Fetch API and HTMLFormElement (experimentaly for now)
 
 ### Back-End
